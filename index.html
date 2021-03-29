@@ -1,0 +1,63 @@
+<DOCTYPE html>
+<html>
+<head>
+<title>Livros</title>
+<meta charset="utf-8">
+
+<script>
+	function chamadaAjax() {
+		var xhtml = new XMLHttpRequest();
+
+		xhtml.onreadystatechange = function() {
+			if (xhtml.readyState == 4 && xhtml.status == 200) {
+				xmlDoc = xhtml.responseXML;
+				var txt = '<table>';
+				x = xmlDoc.getElementsByTagName("livro");
+				for (var i = 0; i < x.length; i++) {
+					txt += "<tr>";
+					txt += "<td>Titulo</td>";
+					txt += "<td>&nbsp&nbsp&nbsp</td>";
+					txt += "<td>"+x[i].getElementsByTagName("titulo")[0].childNodes[0].nodeValue+"</td>";
+					txt += "</tr>";
+					
+					txt += "<tr>";
+					txt += "<td>Autor</td>";
+					txt += "<td>&nbsp&nbsp&nbsp</td>";
+					txt += "<td>"+x[i].getElementsByTagName("autor")[0].childNodes[0].nodeValue+"</td>";
+					txt += "</tr>";
+					
+					txt += "<tr>";
+					txt += "<td>Ano Publicação</td>";
+					txt += "<td>&nbsp&nbsp&nbsp</td>";
+					txt += "<td>"+x[i].getElementsByTagName("anoPublicacao")[0].childNodes[0].nodeValue+"</td>";
+					txt += "</tr>";
+					
+					txt += "<tr>";
+					txt += "<td>Editora<hr/></td>";
+					txt += "<td>&nbsp&nbsp&nbsp</td>";
+					txt += "<td>"+x[i].getElementsByTagName("editora")[0].childNodes[0].nodeValue+"<hr/></td>";
+					txt += "</tr>";
+				}
+				txt += '</table>'
+				document.getElementById("conteudo").innerHTML = txt;
+			}
+		}
+		xhtml.open("GET", "livros.xml", true);
+		xhtml.send();
+	}
+</script>
+
+</head>
+<body>
+
+	<form>
+
+		<div style="width: 600px">
+			<h1>LIVROS EXISTENTES</h1>
+			<div id="conteudo"></div>
+			<button type="button" onClick="chamadaAjax()">Enviar</button>
+		</div>
+
+	</form>
+</body>
+</html>

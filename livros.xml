@@ -1,0 +1,20 @@
+<livros>
+	<livro>
+		<autor>FULANO DE TAL</autor>
+		<titulo>LIVRO 1</titulo>
+		<anoPublicacao>2000</anoPublicacao>
+		<editora>EDITORA 1</editora>
+	</livro>
+	<livro>
+		<autor>BELTRANO DE TAL</autor>
+		<titulo>LIVRO 2</titulo>
+		<anoPublicacao>2010</anoPublicacao>
+		<editora>EDITORA 2</editora>
+	</livro>
+	<livro>
+		<autor>BELTRANO DE TAL</autor>
+		<titulo>LIVRO 2</titulo>
+		<anoPublicacao>2010</anoPublicacao>
+		<editora>EDITORA 2</editora>
+	</livro>
+</livros>
